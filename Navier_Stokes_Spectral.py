@@ -65,11 +65,12 @@ Initial conditions that satisfy the periodic conditions:
 u = np.zeros((Nx,Ny))    # initial velocity in x direction
 v = np.zeros((Nx,Ny))    # initial velocity in y direction
 
-# if this is disabled, then the initial conditions are (u,v) = (0,0)
-for i in range ( len ( x ) ) :
-    for j in range ( len ( y ) ) :
-        u [ i ][ j ]= np.sin (2* np.pi * x [ i ] / Ly)* np.cos(2*np.pi * y[ j ] / Ly )
-        v [ i ][ j ]= -np.sin (2* np.pi * y [ j ] / Ly) 
+# if this is disabled, then the initial conditions are (u,v) = (0,0). Otherwise, look at the initial graph.
+# I wrote it this way because it works.
+for i in range(len(x)):
+    for j in range(len(y)):
+        u [i][j]= np.cos(2*np.pi * y[j] / Ly )* np.sin(2* np.pi * x[i] / Ly)
+        v [i][j]= -np.sin(2* np.pi * y[j] / Ly) 
 
 u_hat = np.fft.fft2(u) # Fourier transform of the ic in x direction -> corresponds to timestep n+1
 u_hat_old = u_hat.copy()  # Corresponds to timestep n
@@ -81,11 +82,11 @@ v_hat_old_2 = v_hat_old.copy()  # Corresponds to timestep n-1
 
 """ Forcing terms """
 
-# Task 7
+# Vorticity field 1
 fx = ((2*np.pi)**3 / Gr) * ((Lx**2 + Ly**2) / Lx**2) * np.cos( 2 * np.pi * y_grid ) * np.sin( 2* np.pi * (Ly/Lx) * x_grid )
 fy = -((2*np.pi)**3 / Gr) * ((Lx**2 + Ly**2) / Lx**2) * (Ly/Lx) * np.sin( 2 * np.pi * y_grid ) * np.cos( 2* np.pi * (Ly/Lx) * x_grid )
 
-# Task 2
+# Vorticity field 2
 #fx = np.sin(2*np.pi*y_grid)
 #fy = np.zeros((Nx,Ny))
 
