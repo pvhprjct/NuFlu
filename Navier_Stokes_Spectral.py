@@ -65,7 +65,7 @@ Initial conditions that satisfy the periodic conditions:
 u = np.zeros((Nx,Ny))    # initial velocity in x direction
 v = np.zeros((Nx,Ny))    # initial velocity in y direction
 
-# if this is green, then the initial conditions are (u,v) = (0,0)
+# if this is disabled, then the initial conditions are (u,v) = (0,0)
 for i in range ( len ( x ) ) :
     for j in range ( len ( y ) ) :
         u [ i ][ j ]= np.sin (2* np.pi * x [ i ] / Ly)* np.cos(2*np.pi * y[ j ] / Ly )
