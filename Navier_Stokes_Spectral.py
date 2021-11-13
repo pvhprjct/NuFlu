@@ -2,7 +2,7 @@
 """
 Created on Fri Aug  6 01:10:06 2021
 
-@author: pvghd
+@author: pvhprjct
 """
 
 import numpy as np
@@ -13,16 +13,16 @@ import matplotlib.pyplot as plt
 
 Nx = 64             # mesh size x -> resolution
 Ny = 32             # mesh size y -> resolution
-Lx = 2               # size of the container (x direction)
-Ly = 1               # size of the container (y direction)
+Lx = 2              # size of the container (x direction)
+Ly = 1              # size of the container (y direction)
 time = 0.5          # simulation's duration
-dt = 10**(-3)      # timestep size -> delta t
+dt = 10**(-3)       # timestep size -> delta t
 
-dx = Lx/Nx           # number of discretization poins in space
+dx = Lx/Nx          # number of discretization poins in space
 dy = Ly/Ny
 nt = time / dt      # number of discretization points in time (no. of timesteps)
 
-Gr = 1e2              # Grashof number
+Gr = 1e2            # Grashof number
 
 """ Wave vectors (kappa) """
 
@@ -62,7 +62,7 @@ Initial conditions that satisfy the periodic conditions:
 
 """ Velocity terms """
 
-u = np.zeros((Nx,Ny))        # initial velocity in x direction
+u = np.zeros((Nx,Ny))    # initial velocity in x direction
 v = np.zeros((Nx,Ny))    # initial velocity in y direction
 
 # if this is green, then the initial conditions are (u,v) = (0,0)
