@@ -2,16 +2,16 @@
 """
 Created on Thu Jun 17 22:46:33 2021
 
-@author: pvghd
+@author: pvhprjct
 """
 import numpy as np
 import matplotlib.pyplot as plt
 
-N, L, D, dt, time = 64, 1., 1., 10**(-5), 1 # N must be a power of 2
+N, L, D, dt, time = 64, 1., 1., 10**(-5), 1 # N must be a power of 2 for fft to work optimally
 step = L/N # sampling interval
 
-x = np.arange(0, L, step) # grid (0,1) with N steps of size 'step'
-# I can't use N+1 steps because the final grid (after fft procedure) doesn't match
+x = np.arange(0, L, step)  # grid (0,1) with N steps of size 'step'
+# Can't use N+1 steps because the final grid (after fft procedure) doesn't match
 x0 = x.copy()
 
 u = np.sin(2*np.pi*x)  # initial condition
